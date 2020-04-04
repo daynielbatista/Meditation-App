@@ -2,6 +2,9 @@
 const app = () => {
 
     const song = document.querySelector('.song');
+    //Restart
+    const refresh = document.querySelector('.player-container refresh');
+    //const refresh = document.querySelector('.refresh');
     const play = document.querySelector('.play');
     const outline = document.querySelector('.moving-outline circle');
     const video = document.querySelector('.vid-container video');
@@ -32,6 +35,22 @@ const app = () => {
     play.addEventListener("click", () => {
         checkPlaying(song);
     });
+
+    //Refresh sound/video
+    //Option 1:
+    /*refresh.addEventListener("click", function(){
+        
+    });
+    
+    //Opcion 2:
+    /*refresh.addEventListener("click", refreshAll);
+    function refreshAll(){
+        song.play();
+        video.play();
+
+
+    }*/
+
 
     //Select sound
     timeSelect.forEach(option =>{

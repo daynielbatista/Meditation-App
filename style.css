@@ -26,6 +26,27 @@
     position: relative;
 }
 
+/*.refresh-container {
+ position: absolute;
+ left: 0;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ margin: auto;
+ position: absolute;
+ height: 70px;
+ width: 70px;
+}
+
+.refresh svg{
+ color: white;
+}*/
+
+.player-container img {
+    /*position: absolute;
+    top: 0%;*/
+   }
+
 .player-container svg {
     position: absolute;
     height: 50%;
