@@ -24,7 +24,7 @@
 
 .player-container{
     position: relative;
-}
+    }
 
 /*.refresh-container {
  position: absolute;
@@ -36,16 +36,12 @@
  position: absolute;
  height: 70px;
  width: 70px;
-}
-
-.refresh svg{
- color: white;
 }*/
 
-.player-container img {
-    /*position: absolute;
-    top: 0%;*/
-   }
+.refresh {
+ position: absolute;
+ top: 0;
+}
 
 .player-container svg {
     position: absolute;
