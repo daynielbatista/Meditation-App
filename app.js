@@ -1,7 +1,9 @@
-
 const app = () => {
 
     const song = document.querySelector('.song');
+    //Restart
+    const refresh = document.querySelector('.refresh');
+    //const refresh = document.querySelector('.refresh');
     const play = document.querySelector('.play');
     const outline = document.querySelector('.moving-outline circle');
     const video = document.querySelector('.vid-container video');
@@ -9,8 +11,9 @@ const app = () => {
     //Sounds
     const sounds = document.querySelectorAll('.sound-picker button');
     //Time Display
-    const timeDisplay = document.querySelector('.time-display')
-    const timeSelect = document.querySelectorAll('.time-select button')
+    const timeDisplay = document.querySelector('.time-display');
+    const timeSelect = document.querySelectorAll('.time-select button');
+    console.log('timeSelect: ', timeSelect);
     //Get the length of the outline
     const outlineLength = outline.getTotalLength();
     //Duration
@@ -21,7 +24,9 @@ const app = () => {
 
     // Pick different sounds
     sounds.forEach(sound => {
-        sound.addEventListener('click', function(){
+        console.log('sound: ', sound);
+        sound.addEventListener('click', function(){ 
+            console.log('this: ', this);
             song.src = this.getAttribute('data-sound');
             video.src = this.getAttribute('data-video');
             checkPlaying(song);
@@ -33,11 +38,23 @@ const app = () => {
         checkPlaying(song);
     });
 
+    
+    //Option 3 
+    refresh.addEventListener("click", function(){
+        //song.play();
+        song.currentTime = 0;
+        //play.src = './svg/pause.svg'
+        });
+
+        
     //Select sound
     timeSelect.forEach(option =>{
+        console.log('option: ', option);
         option.addEventListener('click', function(){
             fakeDuration = this.getAttribute("data-time");
+            song.currentTime = 0;
             timeDisplay.textContent = `${Math.floor(fakeDuration /60)}:${Math.floor(fakeDuration % 60)}`;
+            //timeDisplay.textContent = Math.floor(fakeDuration /60) +':'+Math.floor(fakeDuration % 60)
         });
     });
 

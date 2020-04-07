@@ -24,6 +24,23 @@
 
 .player-container{
     position: relative;
+    }
+
+/*.refresh-container {
+ position: absolute;
+ left: 0;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ margin: auto;
+ position: absolute;
+ height: 70px;
+ width: 70px;
+}*/
+
+.refresh {
+ position: absolute;
+ top: 0;
 }
 
 .player-container svg {
