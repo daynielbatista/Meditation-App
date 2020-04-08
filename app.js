@@ -39,7 +39,7 @@ const app = () => {
     });
 
     
-    //Option 3 
+    //Restart times
     refresh.addEventListener("click", function(){
         //song.play();
         song.currentTime = 0;
@@ -47,14 +47,26 @@ const app = () => {
         });
 
         
-    //Select sound
+    //Select Time
     timeSelect.forEach(option =>{
         console.log('option: ', option);
         option.addEventListener('click', function(){
             fakeDuration = this.getAttribute("data-time");
             song.currentTime = 0;
-            timeDisplay.textContent = `${Math.floor(fakeDuration /60)}:${Math.floor(fakeDuration % 60)}`;
-            //timeDisplay.textContent = Math.floor(fakeDuration /60) +':'+Math.floor(fakeDuration % 60)
+            //timeDisplay.textContent = `${Math.floor(fakeDuration /60)}:${Math.floor(fakeDuration % 60)}`;
+            //timeDisplay.textContent = Math.floor(fakeDuration /60) +':'+ Math.floor(fakeDuration % 60);
+           let m = Math.floor(fakeDuration /60);
+           let s = Math.floor(fakeDuration % 60);
+                      
+           if(m < 10){
+                m = "0"+ m;
+            }
+            
+            if(s < 10){
+                s = "0"+ s;
+            }
+
+            timeDisplay.textContent = m + ':' + s;
         });
     });
 
@@ -78,13 +90,31 @@ const app = () => {
         let elapsed = fakeDuration - currentTime;
         let seconds = Math.floor(elapsed % 60);
         let minutes = Math.floor(elapsed / 60);
-
+        //console.log('Time: ', elapsed);       
         // Animate the circle
         let progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
         outline.style.strokeDashoffset = progress;
 
-        // Animate the text
-        timeDisplay.textContent = `${minutes}:${seconds}`;
+        // Animate the text 
+
+        if(minutes < 10){
+            minutes = "0"+ minutes;
+        }
+        
+        if(seconds < 10){
+            seconds = "0"+ seconds;
+        }
+
+        timeDisplay.textContent = m + ':' + s;
+
+        /* if('${minutes}' < 10){
+            '${minutes}' = '0'+ '${minutes}';
+        }
+        if(seconds < 10){
+            seconds = '0'+ seconds;
+        }*/
+       
+        //timeDisplay.textContent = `${minutes}:${seconds}`;
 
         if(currentTime >= fakeDuration){
             song.pause();
@@ -92,6 +122,8 @@ const app = () => {
             play.src = './svg/play.svg'
             video.pause();
         }
+
+        
     };
     
 };
